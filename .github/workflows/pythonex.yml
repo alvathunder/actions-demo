@@ -12,7 +12,8 @@ jobs:
           python-version: 3.8 
       - name: Pytest
         run: pip install pytest
-      - name: pytest files/pulpfiction.py
+      - name: test
+        run: pytest files/pulpfiction.py
 
   run-python:
     needs: test-python # state previous job identifier
