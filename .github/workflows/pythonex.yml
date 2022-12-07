@@ -13,7 +13,7 @@ jobs:
       - name: Pytest
         run: pip install pytest
       - name: test
-        run: pytest files/pulpfiction.py
+        run: pytest ./files/pulpfiction.py
 
   run-python:
     needs: test-python # state previous job identifier
