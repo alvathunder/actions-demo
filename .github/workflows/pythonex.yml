@@ -1,7 +1,7 @@
 name: python example
 on: push
 jobs:
-  test python: # job identifier
+  test-python: # job identifier
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -12,10 +12,10 @@ jobs:
           python-version: 3.8 
       - name: Pytest
         run: pip install pytest
-      - name: pytest pulpfiction.py
+      - name: pytest files/pulpfiction.py
 
-  run python:
-    needs: test python # state previous job identifier
+  run-python:
+    needs: test-python # state previous job identifier
     runs-on: ubuntu-latest 
     steps:
       - name: Get code
@@ -25,5 +25,5 @@ jobs:
         with:
           python-version: 3.8 
       - name: Execution 
-        run: python pulpfiction.py
+        run: python files/pulpfiction.py
   
