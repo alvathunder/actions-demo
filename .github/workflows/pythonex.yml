@@ -1,0 +1,29 @@
+name: python example
+on: push
+jobs:
+  test python: # job identifier
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 
+      - name: Pytest
+        run: pip install pytest
+      - name: pytest pulpfiction.py
+
+  run python:
+    needs: test python # state previous job identifier
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 
+      - name: Execution 
+        run: python pulpfiction.py
+  
